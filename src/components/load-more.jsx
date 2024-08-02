@@ -6,6 +6,10 @@ const LoadMore = () => {
           Load More
         </button>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
