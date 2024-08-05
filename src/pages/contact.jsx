@@ -4,8 +4,8 @@ const Contact = () => {
   return (
     <div>
       <div>
-        <div>
-          <div>
+        <div className="flex justify-center items-center">
+          <div className="w-[895px] h-[895px]">
             <div className="w-[769px] h-[389px] flex flex-col justify-center ">
               <div className="w-[624px] h-[163px]">
                 <h1 className="text-[#000000] font-semibold text-4xl">
@@ -38,7 +38,48 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div></div>
+            <div>
+              <div>
+                <h1 className="text-black font-semibold text-lg">
+                  Leave a Message
+                </h1>
+                <div>
+                  <div>
+                    <div className="mt-6">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="border border-[#DCDDDF] rounded-md w-[225px] h-[38px]"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Your Email"
+                        className="border border-[#DCDDDF] rounded-md w-[225px] h-[38px] ml-7"
+                      />
+                    </div>
+                    <div className="mt-5">
+                      <input
+                        type="text"
+                        placeholder="Subject"
+                        className="w-[478px] h-[35px] border border-[#DCDDDF] rounded-md"
+                      />
+                    </div>
+                    <div className="mt-5">
+                      <input
+                        type="text"
+                        placeholder="Write a message"
+                        className="w-[478px] h-[134px] border border-[#DCDDDF] rounded-md"
+                      />
+                    </div>
+                    <div>
+                      <button className="w-[130px] h-[40px] bg-[#4B6BFB] text-white rounded-md mt-7">
+                        Send Message
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
