@@ -13,12 +13,10 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main>
-      <Navbar />
       <Content />
       <Trending />
       <BlogPost />
       <LoadMore />
-      <Footer />
     </main>
   );
 }

@@ -2,7 +2,7 @@ const SinglePost = () => {
   return (
     <div>
       <div>
-        <div className="w-[392px] h-[476px]">
+        <div className="w-[392px] h-[476px] border rounded-xl flex justify-center items-center flex-col ml-5 mt-5">
           <div className="w-[360px] h-[240px] bg-cover bg-center border ">
             <img
               className="w-[360px] h-[240px] rounded-md"

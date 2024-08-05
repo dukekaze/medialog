@@ -1,3 +1,6 @@
+import React from "react";
+import Link from "next/link";
+
 const Navbar = () => {
   return (
     <div>
@@ -7,9 +10,15 @@ const Navbar = () => {
         </div>
         <div className="">
           <ul className="flex items-center gap-[40px] text-base font-normal text-slate-600">
-            <li>Home</li>
-            <li>Blog</li>
-            <li>Contact</li>
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contact</Link>
+            </li>
           </ul>
         </div>
         <div className="flex items-center">
