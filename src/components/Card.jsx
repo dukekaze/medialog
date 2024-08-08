@@ -1,30 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Card = ({ title }) => {
+const Card = ({}) => {
+  const [articles, setArticles] = useState([]);
+  const getArticles = async () => {
+    const response = await fetch(
+      "https://dev.to/api/articles?page=5&per_page=12"
+    );
+    const data = await response.json();
+    setArticles(data);
+    console.log("data", data);
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, []);
+
   return (
-    <div>
-      <div>
-        <div className="w-[392px] h-[476px] border rounded-xl flex justify-center items-center flex-col ml-5 mt-5">
-          <div className="w-[360px] h-[240px] bg-cover bg-center border ">
-            <img
-              className="w-[360px] h-[240px] rounded-md"
-              src="https://s3-alpha-sig.figma.com/img/3abf/26dd/585632b9d05dcfd0daffacedd55842f5?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EPw172JMNS1pXf8fq2rRzKwkvNmPcnVY8mlpDmytQJAoU6U3b0B7fI7cIaLrRgXd5a3KAqMkE2HjM2wsO2xsffI3sUEw9jtpqBv8C3opDDdFWboxrLLBMYu0~nkaPFmnahQEsgI2~yvOJkICbZWbEapg6JQma7ElVV8TaHfgJ5m~bU6lF0MYcNhtCYOFVUxnoZJV56WWt6SferMVfnC2Qrb--oPoVI39qGb7TB~o-PwzNGXXpB1XJYwEniGvRwYuUNVt1bCQC96EIz3K0q4FYB2NA2WRCvrP4YIDfK3RON8VfUDbld1-WHNk-Q6Qd8ydgXPtDebPY27T6XJ1BpXG3w__"
-              alt=""
-            />
-          </div>
-          <div className="flex flex-col justify-center ml-4">
-            <div>
-              <div className="text-[#4B6BFB] text-sm mt-6">Technology</div>
-              <div className="w-[344px] h-[84px] text-[#181A2A] text-2xl font-semibold mt-4">
-                The Impact of Technology on the Workplace: How Technology is
-                Changing
+    <div className="flex justify-center">
+      <div className="grid md:grid-cols-3 gap-5  grid-cols-1 w-[1216px] mt-16">
+        {articles.map((blogOb) => {
+          return (
+            <div className="">
+              <div className="w-[392px] h-[476px] p-4 flex flex-col gap-4 border border-gray-200 rounded-lg">
+                <div className="w-[360px] h-[240px] ">
+                  <img
+                    src={blogOb.social_image}
+                    alt=""
+                    className="size-full object-cover  rounded-lg"
+                  />
+                </div>
+                <div className="">
+                  <span className="bg-gray-100 text-blue-600 px-4 py-1 rounded-lg  ">
+                    {blogOb.type_of}
+                  </span>
+                  <p className=" flex flex-wrap my-4 text-2xl font-semibold">
+                    {blogOb.title}
+                  </p>
+
+                  <div className="flex items-center gap-20 text-gray-500 text-sm">
+                    <div className="flex justify-center gap-2 items-center">
+                      <img
+                        src={blogOb.user.profile_image}
+                        alt=""
+                        className="w-10 h-10 rounded-full"
+                      />
+                      <h1>{blogOb.user.username}</h1>
+                    </div>
+                    <p>{blogOb.readable_publish_date}</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="text-[#97989F] text-base font-normal mt-5">
-              August 20, 2022
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

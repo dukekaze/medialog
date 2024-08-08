@@ -26,6 +26,7 @@ export default function Home() {
     <main>
       <Content />
       <Trending />
+      <BlogPost />
       <Card />
       <LoadMore />
     </main>

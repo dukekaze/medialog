@@ -1,6 +1,6 @@
 import React from "react";
-import SinglePost from "@/components/single-post";
 import LoadMore from "@/components/load-more";
+import Card from "@/components/Card";
 
 const Blog = () => {
   return (
@@ -15,26 +15,7 @@ const Blog = () => {
         </div>
       </div>
       <div className="flex flex-col items-center mt-8">
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
+        <Card />
       </div>
       <LoadMore />
     </div>

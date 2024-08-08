@@ -27,23 +27,6 @@ const BlogPost = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center mt-8">
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
-        <div className="flex">
-          <SinglePost />
-          <SinglePost />
-          <SinglePost />
-        </div>
-      </div>
     </div>
   );
 };
