@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { SearchContext } from "@/provider/search-provider";
 
 const Navbar = () => {
+  const { setSearchValue } = useContext(SearchContext);
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
   return (
     <div>
       <div className="flex justify-evenly h-[100px] items-center">
@@ -22,7 +27,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-          <input type="text" placeholder="Search" />
+          <input
+            type="text"
+            placeholder="Search"
+            onChange={handleChange}
+            className="p-1 border border-solid"
+          />
           <img
             className="w-4 h-4"
             src="./images/header/search-outline.svg"

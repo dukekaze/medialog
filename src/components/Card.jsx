@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { SearchContext } from "@/provider/search-provider";
 
 const Card = ({}) => {
+  const { searchValue } = useContext(SearchContext);
   const [articles, setArticles] = useState([]);
+
   const getArticles = async () => {
     const response = await fetch(
       "https://dev.to/api/articles?page=5&per_page=12"
@@ -15,10 +18,15 @@ const Card = ({}) => {
     getArticles();
   }, []);
 
+  const findPost = articles.filter((article) =>
+    article.title.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+  );
+
   return (
     <div className="flex justify-center">
+      <h2>Хайлт: {searchValue}</h2>
       <div className="grid md:grid-cols-3 gap-5  grid-cols-1 w-[1216px] mt-16">
-        {articles.map((blogOb) => {
+        {findPost.map((blogOb) => {
           return (
             <div className="">
               <div className="w-[392px] h-[476px] p-4 flex flex-col gap-4 border border-gray-200 rounded-lg">
