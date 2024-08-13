@@ -1,17 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SearchContext } from "@/provider/search-provider";
+import "react-toastify/dist/ReactToastify.css";
 
 const Card = ({}) => {
   const { searchValue } = useContext(SearchContext);
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getArticles = async () => {
-    const response = await fetch(
-      "https://dev.to/api/articles?page=5&per_page=12"
-    );
-    const data = await response.json();
-    setArticles(data);
-    console.log("data", data);
+    try {
+      setIsLoading(true);
+      const response = await fetch(
+        "https://dev.to/api/articles?page=5&per_page=12"
+      );
+      const data = await response.json();
+      setArticles(data);
+      console.log("data", data);
+    } catch {
+      console.log("er", error);
+      setIsLoading(false);
+      toast.success("Алдаа гарлаа. Та дахин оролдоно уу");
+    }
   };
 
   useEffect(() => {

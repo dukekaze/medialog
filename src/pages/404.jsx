@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Error = () => {
   return (
     <div>
@@ -15,9 +17,11 @@ const Error = () => {
                 We're sorry, This page is unknown or does not exist the page you
                 are looking for.
               </div>
-              <button className="bg-[#4B6BFB] w-[130px] h-[40px] text-white rounded-md mt-2">
-                Back To Home
-              </button>
+              <Link href="/">
+                <button className="bg-[#4B6BFB] w-[130px] h-[40px] text-white rounded-md mt-2">
+                  Back To Home
+                </button>
+              </Link>
             </div>
           </div>
         </div>

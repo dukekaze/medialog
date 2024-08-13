@@ -9,7 +9,7 @@ import Card from "@/components/Card";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles, isLoading] = useState([]);
 
   const getArticleData = async () => {
     const response = await fetch("https://dev.to/api/articles");
