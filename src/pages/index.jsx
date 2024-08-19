@@ -27,7 +27,13 @@ export default function Home() {
       <Content />
       <Trending />
       <BlogPost />
-      <Card />
+      <div className="flex flex-wrap ">
+        {isLoading ? (
+          <Loader />
+        ) : (
+          articles.map((article) => <Card key={article.id} article={article} />)
+        )}
+      </div>
       <LoadMore />
     </main>
   );
